@@ -4,27 +4,19 @@ import { CommonModule } from '@angular/common';
 import { CoreRoutingModule } from './core-routing.module';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { NavComponent } from './nav/nav.component';
-import { ArticleComponent } from './article/article.component';
-
-import {MatCardModule} from '@angular/material/card';
-
 
 @NgModule({
   declarations: [
     NavComponent,
-    SidebarComponent,
-    ArticleComponent
+    SidebarComponent
   ],
   imports: [
     CommonModule,
-    CoreRoutingModule,
-
-    MatCardModule
+    CoreRoutingModule
   ],
   exports:[
     NavComponent,
-    SidebarComponent,
-    ArticleComponent
+    SidebarComponent
   ]
 })
 export class CoreModule { }

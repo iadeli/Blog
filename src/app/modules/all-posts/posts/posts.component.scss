@@ -1,12 +1,4 @@
-article {
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 80%;
-    min-height: calc(100vh - 60px);
-}
-
-article.flex{
+div.flex{
     display: flex;
     flex-direction: row-reverse;
     flex-wrap: nowrap;
@@ -15,18 +7,13 @@ article.flex{
     align-items: baseline;
 }
 
-
-
-
-
+.half-width {
+    width: 50%;
+}
 
 mat-card {
     background-color: white;
     color: #000;
     direction: rtl;
     margin: 10px;
-}
-
-.half-width {
-    width: 50%;
 }
