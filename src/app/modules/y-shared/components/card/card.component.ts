@@ -7,9 +7,10 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class CardComponent implements OnInit {
 
-  @Input() title: string | undefined;
-  @Input() subtitle: string | undefined;
-  @Input() content: string | undefined;
+  @Input() title: string = '';
+  @Input() subtitle: string = '';
+  @Input() content: string = '';
+  @Input() showButton: boolean = false;
   @Output() cardClicked: EventEmitter<number> = new EventEmitter<number>();
 
   constructor() { }

@@ -5,6 +5,6 @@
         <p>{{content}}</p>
     </mat-card-content>
     <mat-card-actions>
-        <button mat-stroked-button color="primary" (click)="onViewCard()">مشاهده</button>
+        <button *ngIf="showButton" mat-stroked-button color="primary" (click)="onViewCard()">مشاهده</button>
     </mat-card-actions>
 </mat-card>

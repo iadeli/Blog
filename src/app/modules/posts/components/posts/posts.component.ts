@@ -7,19 +7,22 @@ import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-posts',
   templateUrl: './posts.component.html',
-  styleUrls: ['./posts.component.scss']
+  styleUrls: ['./posts.component.scss'],
 })
 export class PostsComponent implements OnInit {
-
   posts$: Observable<Post[]> = this.postsState.posts$;
 
-  constructor(private postsState :PostsStateService, private router: Router, private activeRoute: ActivatedRoute) { }
+  constructor(
+    private router: Router,
+    private activeRoute: ActivatedRoute,
+    private postsState: PostsStateService
+  ) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  navigateToPost(postId: number) {
+    this.router.navigate([`detail/${postId}`], {
+      relativeTo: this.activeRoute,
+    });
   }
-
-  navigateToPost(postId: number){
-    this.router.navigate([`detail/${postId}`], {relativeTo:this.activeRoute});
-  }
-
 }
