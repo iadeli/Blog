@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AllPostsRoutingModule } from './all-posts-routing.module';
+import { SharedModule } from '../y-shared/shared.module';
 import { PostsComponent } from './components/posts/posts.component';
 
-import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -13,8 +13,7 @@ import {MatCardModule} from '@angular/material/card';
   imports: [
     CommonModule,
     AllPostsRoutingModule,
-
-    MatCardModule
+    SharedModule
   ]
 })
 export class AllPostsModule { }

@@ -1,0 +1,16 @@
+mat-card {
+    background-color: white;
+    color: #000;
+    direction: rtl;
+    margin: 10px;
+}
+
+mat-card > mat-card-content > p {
+    direction: rtl;
+    text-align: justify;
+    display: -webkit-box;
+    -webkit-line-clamp: 8;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: 160px;
+}

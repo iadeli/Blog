@@ -15,7 +15,7 @@ export class PostsComponent implements OnInit {
   constructor(private postsState :PostsStateService) { }
 
   ngOnInit(): void {
-    this.posts$.subscribe(res => console.log(res));
+    //this.posts$.subscribe(res => console.log(res));
   }
 
 }

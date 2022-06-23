@@ -1,31 +1,27 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 import { faker } from '@faker-js/faker';
+import { Post } from '../../all-posts/models/post';
+import { Injectable } from '@angular/core';
 
+@Injectable({
+  providedIn: 'root',
+})
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
-    const heroes = [
-      { id: 0, name: 'Zero' },
-      { id: 11, name: 'Mr. Nice' },
-      { id: 12, name: 'Narco' },
-      { id: 13, name: 'Bombasto' },
-      { id: 14, name: 'Celeritas' },
-      { id: 15, name: 'Magneta' },
-      { id: 16, name: 'RubberMan' },
-      { id: 17, name: 'Dynama' },
-      { id: 18, name: 'Dr IQ' },
-      { id: 19, name: 'Magma' },
-      { id: 20, name: 'Tornado' },
-    ];
 
-    const posts = () => {
+    const posts: Post[] = [];
+
+    const craetePost = () => {
       return {
-        userId: faker.datatype.number,
-        id: faker.datatype.number,
-        title: faker.datatype.string,
-        body: faker.datatype.string,
+        userId: faker.datatype.number(),
+        id: faker.datatype.number(),
+        title: faker.lorem.slug(),
+        body: faker.lorem.paragraphs(),
       };
     };
 
-    return { heroes, posts };
+    Array.from({ length: 10 }).forEach(() => posts.push(craetePost()));
+
+    return { posts };
   }
 }
