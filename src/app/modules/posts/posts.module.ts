@@ -1,14 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { AllPostsRoutingModule } from './all-posts-routing.module';
+import { AllPostsRoutingModule } from './posts-routing.module';
 import { SharedModule } from '../y-shared/shared.module';
 import { PostsComponent } from './components/posts/posts.component';
+import { PostDetailComponent } from './components/detail/post-detail.component';
 
 
 @NgModule({
   declarations: [
-    PostsComponent
+    PostsComponent,
+    PostDetailComponent
   ],
   imports: [
     CommonModule,
@@ -16,4 +18,4 @@ import { PostsComponent } from './components/posts/posts.component';
     SharedModule
   ]
 })
-export class AllPostsModule { }
+export class PostsModule { }

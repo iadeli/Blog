@@ -1,0 +1,7 @@
+<div class="flex">
+
+  <ng-container *ngFor="let post of posts$ | async">
+    <app-card [title]="post.title" [content]="post.body" (cardClicked)="navigateToPost(post.id)"></app-card>
+  </ng-container>
+
+</div>

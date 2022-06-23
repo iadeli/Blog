@@ -2,3 +2,46 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+@import '~@angular/material/theming';
+
+$my-purple: (
+  50: #e9e3ed,
+  100: #c8b9d3,
+  200: #a38bb5,
+  300: #7e5c97,
+  400: #623981,
+  500: #46166b,
+  600: #3f1363,
+  700: #371058,
+  800: #2f0c4e,
+  900: #20063c,
+  A100: #ad73ff,
+  A200: #8f40ff,
+  A400: #720dff,
+  A700: #6500f2,
+  contrast: (
+    50: $black-87-opacity,
+    100: $black-87-opacity,
+    200: $black-87-opacity,
+    300: $black-87-opacity,
+    400: white,
+    500: white,
+    600: $white-87-opacity,
+    700: $white-87-opacity,
+    800: $white-87-opacity,
+    900: $white-87-opacity,
+    A100: $black-87-opacity,
+    A200: $black-87-opacity,
+    A400: white,
+    A700: $white-87-opacity,
+  )
+);
+
+$primary: mat-palette($my-purple);
+$accent:  mat-palette($my-purple, A200, A100, A400);
+$warn:    mat-palette($mat-red);
+$theme:   mat-light-theme($primary, $accent, $warn);
+
+@include angular-material-theme($theme);

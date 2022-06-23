@@ -1,6 +1,6 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 import { faker } from '@faker-js/faker';
-import { Post } from '../../all-posts/models/post';
+import { Post } from '../../posts/models/post';
 import { Injectable } from '@angular/core';
 
 @Injectable({
