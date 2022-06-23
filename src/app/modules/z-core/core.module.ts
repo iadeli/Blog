@@ -11,6 +11,7 @@ import { InMemoryDataService } from './mocks/in-memory-data-service';
 
 import { NavComponent } from './component/nav/nav.component';
 import { SidebarComponent } from './component/sidebar/sidebar.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -22,7 +23,8 @@ import { SidebarComponent } from './component/sidebar/sidebar.component';
   imports: [
     CommonModule,
     CoreRoutingModule,
-    environment.production ? HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 100 }) : [],
+    HttpClientModule,
+    !environment.production ? HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 100 }) : [],
     
     SharedModule
   ],

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AllPostsRoutingModule } from './all-posts-routing.module';
-import { PostsComponent } from './posts/posts.component';
+import { PostsComponent } from './components/posts/posts.component';
 
 import {MatCardModule} from '@angular/material/card';
 

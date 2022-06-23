@@ -14,21 +14,18 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: 17, name: 'Dynama' },
       { id: 18, name: 'Dr IQ' },
       { id: 19, name: 'Magma' },
-      { id: 20, name: 'Tornado' }
+      { id: 20, name: 'Tornado' },
     ];
 
-    const createRandomUser = () => {
+    const posts = () => {
       return {
-        userId: faker.datatype.uuid(),
-        username: faker.internet.userName(),
-        email: faker.internet.email(),
-        avatar: faker.image.avatar(),
-        password: faker.internet.password(),
-        birthdate: faker.date.birthdate(),
-        registeredAt: faker.date.past(),
+        userId: faker.datatype.number,
+        id: faker.datatype.number,
+        title: faker.datatype.string,
+        body: faker.datatype.string,
       };
-  };
+    };
 
-    return { heroes, createRandomUser };
+    return { heroes, posts };
   }
 }
