@@ -3,7 +3,8 @@ import { Post } from '../../models/post';
 import { PostsStateService } from '../../services/state/posts-state.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CardOptions } from 'src/app/modules/y-shared/interfaces/card';
-import { firstValueFrom, Observable  } from 'rxjs';
+import { firstValueFrom, Observable } from 'rxjs';
+import { ButtonOptions } from 'src/app/modules/y-shared/interfaces/button';
 
 @Component({
   selector: 'app-posts',
@@ -12,8 +13,7 @@ import { firstValueFrom, Observable  } from 'rxjs';
 })
 export class PostsComponent implements OnInit {
   posts$: Observable<Post[]> = this.postsState.posts$;
-  posts: Post[] = [];
-  card: CardOptions = new CardOptions();
+  cards: CardOptions[] = [];
 
   constructor(
     private router: Router,
@@ -22,17 +22,30 @@ export class PostsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.createCards();
+    this.mapPostsToCards();
   }
 
-  async createCards(): Promise<any> {
-    //let posts = this.route.snapshot.data['posts'];
+  async mapPostsToCards() {
     let posts = await firstValueFrom(this.posts$);
-    console.log(posts);
+    this.cards = posts.map(
+      (post) =>
+        new CardOptions(
+          post.id,
+          post.title,
+          post.body,
+          undefined,
+          new Array<ButtonOptions>(
+            new ButtonOptions(
+              'مشاهده',
+              this.navigateToPost.bind(this)
+            )
+          )
+        )
+    );
   }
 
-  navigateToPost(postId: number) {
-    this.router.navigate([`detail/${postId}`], {
+  navigateToPost(card: CardOptions) {
+    this.router.navigate([`detail/${card.key}`], {
       relativeTo: this.route,
     });
   }

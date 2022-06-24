@@ -18,10 +18,16 @@ const initialState: PostState = {
   providedIn: 'root',
 })
 export class PostsStateService extends StateService<PostState> {
-
   constructor(private apiService: PostsApiService) {
     super(initialState);
+    //this.load();
   }
+
+  // load() {
+  //   this.apiService
+  //     .getAll()
+  //     .subscribe((res: Post[]) => this.setState({ posts: res }));
+  // }
 
   posts$: Observable<Post[]> = this.select((state) => {
     return state.posts;
@@ -39,7 +45,7 @@ export class PostsStateService extends StateService<PostState> {
     this.setState({ selectedPostId: postId });
   }
 
-  setPosts(posts:Post[]){
-    this.setState({ posts: posts});
+  setPosts(posts: Post[]) {
+    this.setState({ posts: posts });
   }
 }

@@ -1,5 +1,8 @@
 export class ButtonOptions {
-  title: string = '';
-  attribute: string = '';
+  constructor(title: string, click: Function | undefined) {
+    this.title = title;    
+    this.click = click;
+  }
+  title: string;
   click: Function | undefined;
 }

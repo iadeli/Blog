@@ -30,6 +30,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
-  providers: [PostsResolve, PostDetailResolve],
+  providers:[PostsResolve, PostDetailResolve]
 })
 export class AllPostsRoutingModule {}

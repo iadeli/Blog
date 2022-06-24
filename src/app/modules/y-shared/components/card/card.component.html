@@ -1,10 +1,14 @@
 <mat-card>
-    <mat-card-title>{{title}}</mat-card-title>
-    <mat-card-subtitle *ngIf="subtitle">{{subtitle}}</mat-card-subtitle>
+    <mat-card-title>{{data.title}}</mat-card-title>
+    <mat-card-subtitle *ngIf="data.subtitle">{{data.subtitle}}</mat-card-subtitle>
     <mat-card-content>
-        <p>{{content}}</p>
+        <p>{{data.content}}</p>
     </mat-card-content>
-    <mat-card-actions>
-        <button *ngIf="showButton" mat-stroked-button color="primary" (click)="onViewCard()">مشاهده</button>
-    </mat-card-actions>
+    <ng-container *ngIf="data && data.buttons && data.buttons.length > 0">        
+        <mat-card-actions >
+            <ng-container *ngFor="let button of data.buttons">
+                <button mat-stroked-button color="primary" (click)="onViewCard(button, data)">مشاهده</button>
+            </ng-container>
+        </mat-card-actions>
+    </ng-container>
 </mat-card>

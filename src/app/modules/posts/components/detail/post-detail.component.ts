@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { firstValueFrom, from, of } from 'rxjs';
+import { firstValueFrom } from 'rxjs';
 import { Observable } from 'rxjs/internal/Observable';
+import { CardOptions } from 'src/app/modules/y-shared/interfaces/card';
 import { Post } from '../../models/post';
 import { PostsStateService } from '../../services/state/posts-state.service';
 
@@ -14,6 +15,7 @@ export class PostDetailComponent implements OnInit {
 
   Post$: Observable<Post> = this.postsState.selectedPost$;
   post: Post = new Post();
+  card: CardOptions = new CardOptions(0, '', '', undefined, undefined);
 
   constructor(
     private route: ActivatedRoute,
@@ -21,10 +23,12 @@ export class PostDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getPost();
+    this.mapPostToCard();
   }
-  async getPost() {
+
+  async mapPostToCard() {
     this.post = await firstValueFrom(this.Post$);
-    console.log(this.post);
+    this.card = new CardOptions(this.post.id, this.post.title, this.post.body, undefined, undefined);
   }
+
 }

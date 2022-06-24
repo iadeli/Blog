@@ -1,25 +1,26 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { ButtonOptions } from '../../interfaces/button';
+import { CardOptions } from '../../interfaces/card';
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
-  styleUrls: ['./card.component.scss']
+  styleUrls: ['./card.component.scss'],
 })
 export class CardComponent implements OnInit {
+  @Input() data: CardOptions = new CardOptions('', '', '', undefined);
 
-  @Input() title: string = '';
-  @Input() subtitle: string = '';
-  @Input() content: string = '';
-  @Input() showButton: boolean = false;
-  @Output() cardClicked: EventEmitter<number> = new EventEmitter<number>();
+  // @Input() title: string = '';
+  // @Input() subtitle: string = '';
+  // @Input() content: string = '';
+  // @Input() showButton: boolean = false;
+  // @Output() cardClicked: EventEmitter<number> = new EventEmitter<number>();
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  onViewCard(button: ButtonOptions, data: CardOptions) {
+    if (button && button.click) button.click(data);
   }
-
-  onViewCard(){
-    this.cardClicked.emit();
-  }
-
 }
