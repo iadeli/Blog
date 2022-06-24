@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
-//import { shareReplay } from 'rxjs/operators';
 import { StateService } from 'src/app/modules/z-core/services/state.service';
 import { Post } from '../../models/post';
 import { PostsApiService } from '../api/posts-api.service';
@@ -19,6 +18,11 @@ const initialState: PostState = {
   providedIn: 'root',
 })
 export class PostsStateService extends StateService<PostState> {
+
+  constructor(private apiService: PostsApiService) {
+    super(initialState);
+  }
+
   posts$: Observable<Post[]> = this.select((state) => {
     return state.posts;
   });
@@ -30,24 +34,12 @@ export class PostsStateService extends StateService<PostState> {
 
     return post;
   });
-  // .pipe(
-  //   // Multicast to prevent multiple executions due to multiple subscribers
-  //   shareReplay({ refCount: true, bufferSize: 1 })
-  // );
 
-  constructor(private apiService: PostsApiService) {
-    super(initialState);
-
-    this.load();
-  }
-
-  load() {
-    this.apiService
-      .getAll()
-      .subscribe((res: Post[]) => this.setState({ posts: res }));
-  }
-
-  selectPost(postId: number) {
+  setPostId(postId: number) {
     this.setState({ selectedPostId: postId });
+  }
+
+  setPosts(posts:Post[]){
+    this.setState({ posts: posts});
   }
 }
