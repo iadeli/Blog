@@ -1,0 +1,41 @@
+.comment{
+    margin: 30px 90px;
+    padding: 0px 20px 0px 30px;
+    border-right: solid 2px #ccc;
+}
+.comment p{
+    background-color: white;
+    border-right: solid 1px #ccc;
+    border-bottom: solid 1px #ccc;
+    padding: 10px;
+    line-height: 1.6;
+    position: relative;
+}
+.comment p::before{
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border: solid 2px #ccc;
+    border-radius: 50%;
+    background-color: #2e5c90;
+    top: 10px;
+    right: -60px;
+}
+.comment p::after{
+    font-family: "FontAwesome";
+    content: "\f100";
+    position: absolute;
+    top: 4px;
+    right: -90px;
+    font-size: 18px;
+    color: darkblue;
+}
+
+h3 {
+    padding-right: 10px;
+    font-weight: 500;
+    border-bottom: 2px dashed #ccc;
+    width: fit-content;
+    margin-bottom: 5px;
+}

@@ -5,6 +5,10 @@ mat-card {
     margin: 10px;
 }
 
+mat-card > mat-card-title {
+    min-height: 40px;
+}
+
 mat-card > mat-card-content > p {
     direction: rtl;
     text-align: justify;

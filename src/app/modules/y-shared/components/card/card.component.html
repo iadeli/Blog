@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card *ngIf="data.key">
     <mat-card-title>{{data.title}}</mat-card-title>
     <mat-card-subtitle *ngIf="data.subtitle">{{data.subtitle}}</mat-card-subtitle>
     <mat-card-content>

@@ -8,6 +8,7 @@ import { PostDetailComponent } from './components/detail/post-detail.component';
 import { PostsApiService } from './services/api/posts-api.service';
 import { PostsResolve } from './services/resolver/posts.resolve';
 import { PostDetailResolve } from './services/resolver/post-detail.resolve';
+import { CommentsModule } from '../comments/comments.module';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { PostDetailResolve } from './services/resolver/post-detail.resolve';
   imports: [
     CommonModule,
     AllPostsRoutingModule,
-    SharedModule
+    SharedModule,
+    CommentsModule
   ]
 })
 export class PostsModule { }

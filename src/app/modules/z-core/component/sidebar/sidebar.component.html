@@ -1,7 +1,8 @@
 <aside>
     <h3>عناوین پست</h3>
     <ul>
-        <li><a href="#title1">Title 1</a></li>
-        <li><a href="#title2">Title 2</a></li>
+        <ng-container *ngFor="let link of links">
+            <li><a [routerLink]="link.url">{{link.title}}</a></li>
+        </ng-container>
     </ul>
 </aside>

@@ -1,6 +1,16 @@
+app-card {
+    width: 100%;
+}
+
 app-card > mat-card > mat-card-content > p {
     direction: rtl;
     text-align: justify;
     display: block;
     min-height: 160px;
+}
+
+app-comment-list {
+    direction: rtl;
+    width: 100%;
+    padding: 0px 16px;
 }

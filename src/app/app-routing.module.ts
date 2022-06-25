@@ -4,7 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   { path: 'posts', loadChildren: () => import('./modules/posts/posts.module').then(m => m.PostsModule) },
   { path: 'manage_posts', loadChildren: () => import('./modules/manage-posts/manage-posts.module').then(m => m.ManagePostsModule) },   
-  //{ path: '', redirectTo: '', pathMatch: 'full' }
+  { path: '', redirectTo: 'posts', pathMatch: 'full' },
+  { path: '**', redirectTo: 'posts', pathMatch: 'full' }
 ];
 
 @NgModule({

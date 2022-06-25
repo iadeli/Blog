@@ -8,15 +8,10 @@ import { PostsStateService } from '../state/posts-state.service';
 @Injectable()
 export class PostsResolve implements Resolve<Post[]> {
   constructor(
-    private apiService: PostsApiService,
     private postsState: PostsStateService
   ) {}
 
   resolve(route: ActivatedRouteSnapshot): Observable<Post[]> {
-    return this.apiService.getAll().pipe(
-      tap((posts) => {
-        this.postsState.setPosts(posts);
-      })
-    );
+    return this.postsState.initPosts();
   }
 }

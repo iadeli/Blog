@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/internal/Observable';
+import { Observable, tap } from 'rxjs';
 import { StateService } from 'src/app/modules/z-core/services/state.service';
 import { Post } from '../../models/post';
 import { PostsApiService } from '../api/posts-api.service';
@@ -20,20 +20,21 @@ const initialState: PostState = {
 export class PostsStateService extends StateService<PostState> {
   constructor(private apiService: PostsApiService) {
     super(initialState);
-    //this.load();
   }
 
-  // load() {
-  //   this.apiService
-  //     .getAll()
-  //     .subscribe((res: Post[]) => this.setState({ posts: res }));
-  // }
+  initPosts(){
+    return this.apiService.getAll().pipe(
+      tap((posts) => {
+        this.setPosts(posts);
+      })
+    );
+  }
 
-  posts$: Observable<Post[]> = this.select((state) => {
+  postList$: Observable<Post[]> = this.select((state) => {
     return state.posts;
   });
-
-  selectedPost$: Observable<Post> = this.select((state) => {
+  
+  postSelection$: Observable<Post> = this.select((state) => {
     let post = state.posts.find((item) => item.id === state.selectedPostId);
 
     if (post == undefined) return new Post();

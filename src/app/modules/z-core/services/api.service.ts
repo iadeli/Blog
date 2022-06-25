@@ -13,7 +13,7 @@ export class ApiService {
 
   get<T>(url: string, id?: number): Observable<T> {
     let api_url = `${this.serverUrl}${url}${id ? `/${id}` : ''}`;
-    return this.httpClient.get<T>(api_url);
+    return this.httpClient.get<T>(api_url, { headers: this.headers });
   }
 
   post(url: string, body: any) {

@@ -12,7 +12,7 @@ import { ButtonOptions } from 'src/app/modules/y-shared/interfaces/button';
   styleUrls: ['./posts.component.scss'],
 })
 export class PostsComponent implements OnInit {
-  posts$: Observable<Post[]> = this.postsState.posts$;
+  postList$: Observable<Post[]> = this.postsState.postList$;
   cards: CardOptions[] = [];
 
   constructor(
@@ -26,7 +26,7 @@ export class PostsComponent implements OnInit {
   }
 
   async mapPostsToCards() {
-    let posts = await firstValueFrom(this.posts$);
+    let posts = await firstValueFrom(this.postList$);
     this.cards = posts.map(
       (post) =>
         new CardOptions(

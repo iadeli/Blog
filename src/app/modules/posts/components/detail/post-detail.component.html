@@ -1,4 +1,5 @@
 <div class="flex">
     <app-card [data]="card">
-    </app-card>
+    </app-card>    
+    <app-comment-list *ngIf="commentList && commentList.length > 0"></app-comment-list>
 </div>

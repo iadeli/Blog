@@ -24,7 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     CoreRoutingModule,
     HttpClientModule,
-    !environment.production ? HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 100 }) : [],
+    //!environment.production ? HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 100 }) : [],
     
     SharedModule
   ],
