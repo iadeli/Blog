@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import { StateService } from 'src/app/modules/z-core/services/state.service';
 import { Comment } from '../../../comments/models/comment';
-import { CommentApiService } from '../api/comment-api.service';
+import { CommentApiService } from '../api/comment-api.mock.service';
 
 
 export interface CommentState {
@@ -25,7 +25,10 @@ export class CommentStateService extends StateService<CommentState> {
   }
 
   initComments(postId: number) {
-    this.apiService.getCommentsOnPost(postId).subscribe((comments: Comment[]) => this.setComments(comments));
+    this.apiService.getCommentsOnPost(postId).subscribe((comments: Comment[]) => { 
+      console.log(comments)
+      this.setComments(comments); 
+    });
   }
 
   commentList$: Observable<Comment[]> = this.select((state) => {

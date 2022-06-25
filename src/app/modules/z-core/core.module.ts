@@ -24,7 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     CoreRoutingModule,
     HttpClientModule,
-    //!environment.production ? HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 100 }) : [],
+    !environment.production ? HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 100 }) : [],
     
     SharedModule
   ],
@@ -32,6 +32,9 @@ import { HttpClientModule } from '@angular/common/http';
     NavComponent,
     SidebarComponent
   ],
-  providers: [{provide: ErrorHandler, useClass: GlobalErrorHandler}]
+  providers: [
+    {provide: ErrorHandler, useClass: GlobalErrorHandler},
+    ...environment.providers
+  ]
 })
 export class CoreModule { }

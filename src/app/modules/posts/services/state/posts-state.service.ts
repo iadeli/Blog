@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import { StateService } from 'src/app/modules/z-core/services/state.service';
 import { Post } from '../../models/post';
-import { PostsApiService } from '../api/posts-api.service';
+import { PostApiService } from '../api/posts-api.mock.service';
 
 export interface PostState {
   posts: Post[];
@@ -18,7 +18,7 @@ const initialState: PostState = {
   providedIn: 'root',
 })
 export class PostsStateService extends StateService<PostState> {
-  constructor(private apiService: PostsApiService) {
+  constructor(private apiService: PostApiService) {
     super(initialState);
   }
 

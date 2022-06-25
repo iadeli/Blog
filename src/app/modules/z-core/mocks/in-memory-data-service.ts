@@ -18,6 +18,7 @@ export class InMemoryDataService implements InMemoryDbService {
         id: faker.datatype.number(),
         title: faker.lorem.slug(),
         body: faker.lorem.paragraphs(),
+        //comment: new Array<Comment>()
       };
     };
 
@@ -33,11 +34,12 @@ export class InMemoryDataService implements InMemoryDbService {
 
     Array.from({ length: 10 }).forEach(() => {
       let post = craetePost();
-      posts.push(post);
       Array.from({ length: 5 }).forEach(() => {
         let comment = createComment(post.id);
+        //post.comment.push(comment);
         comments.push(comment);
       });
+      posts.push(post);
     });
 
     return { posts, comments };

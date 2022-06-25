@@ -38,7 +38,6 @@ export class PostDetailComponent implements OnInit {
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe((comments: Comment[]) => {
         this.commentList = comments;
-        console.log(this.commentList);
       });
   }
 
