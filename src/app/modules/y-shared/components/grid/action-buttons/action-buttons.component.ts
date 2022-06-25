@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core'
-import { TableButtonAction } from '../../../interfaces/grid/tableButtonAction'
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { TableButtonAction } from '../../../interfaces/grid/tableButtonAction';
 import { TableConsts } from '../../../const/table';
 
 @Component({
@@ -8,24 +8,30 @@ import { TableConsts } from '../../../const/table';
   styleUrls: ['./action-buttons.component.scss'],
 })
 export class ActionButtonsComponent implements OnInit {
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() { }
+  ngOnInit() {}
 
-  @Input() value!: string
-  @Output() buttonAction: EventEmitter<TableButtonAction> = new EventEmitter<TableButtonAction>()
+  @Input() value!: string;
+  @Output() buttonAction: EventEmitter<TableButtonAction> =
+    new EventEmitter<TableButtonAction>();
 
   onEditClick() {
     this.buttonAction.emit({
       name: TableConsts.actionButton.edit,
       value: this.value,
-    })
+    });
   }
   onDeleteClick() {
-    this.buttonAction.emit({ name: TableConsts.actionButton.delete })
+    this.buttonAction.emit({
+      name: TableConsts.actionButton.delete,
+      value: this.value,
+    });
   }
   onViewClick() {
-    this.buttonAction.emit({ name: TableConsts.actionButton.view })
+    this.buttonAction.emit({
+      name: TableConsts.actionButton.view,
+      value: this.value,
+    });
   }
-
 }
