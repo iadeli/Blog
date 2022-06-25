@@ -26,7 +26,6 @@ export class CommentStateService extends StateService<CommentState> {
 
   initComments(postId: number) {
     this.apiService.getCommentsOnPost(postId).subscribe((comments: Comment[]) => { 
-      console.log(comments)
       this.setComments(comments); 
     });
   }
