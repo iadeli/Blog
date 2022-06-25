@@ -30,7 +30,8 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   exports:[
     NavComponent,
-    SidebarComponent
+    SidebarComponent,
+    SharedModule
   ],
   providers: [
     {provide: ErrorHandler, useClass: GlobalErrorHandler},

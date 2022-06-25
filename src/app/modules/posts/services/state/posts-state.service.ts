@@ -36,9 +36,7 @@ export class PostsStateService extends StateService<PostState> {
   
   postSelection$: Observable<Post> = this.select((state) => {
     let post = state.posts.find((item) => item.id === state.selectedPostId);
-
     if (post == undefined) return new Post();
-
     return post;
   });
 

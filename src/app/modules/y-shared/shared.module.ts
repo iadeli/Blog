@@ -5,11 +5,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { CardComponent } from './components/card/card.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 
 @NgModule({
   declarations: [
-    CardComponent
+    CardComponent,
+    SpinnerComponent
   ],
   imports: [
     CommonModule,
@@ -19,7 +21,8 @@ import { CardComponent } from './components/card/card.component';
     MatSnackBarModule    
   ],
   exports:[
-    CardComponent
+    CardComponent,
+    SpinnerComponent
   ]
 })
 export class SharedModule { }
