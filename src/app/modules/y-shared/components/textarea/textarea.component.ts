@@ -1,19 +1,19 @@
-import { Component, forwardRef, Input } from '@angular/core';
+import { Component, forwardRef, Input, OnInit } from '@angular/core';
 import { ControlValueAccessor, FormControl, FormGroup, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
-  selector: 'app-input',
-  templateUrl: './input.component.html',
-  styleUrls: ['./input.component.scss'],
+  selector: 'app-textarea',
+  templateUrl: './textarea.component.html',
+  styleUrls: ['./textarea.component.scss'],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => InputComponent),
+      useExisting: forwardRef(() => TextareaComponent),
       multi: true,
     },
   ],
 })
-export class InputComponent implements ControlValueAccessor {
+export class TextareaComponent implements ControlValueAccessor {
 
   @Input()
   parentForm: FormGroup | undefined;
@@ -26,6 +26,8 @@ export class InputComponent implements ControlValueAccessor {
 
   @Input()
   placeholder!: string;
+
+  @Input() rows: number = 5;
 
   public value!: string;
   public changed!: (value: string) => void;
@@ -59,4 +61,5 @@ export class InputComponent implements ControlValueAccessor {
   public setDisabledState(isDisabled: boolean): void {
     this.isDisabled = isDisabled;
   }
+
 }

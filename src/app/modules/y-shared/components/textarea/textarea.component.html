@@ -1,8 +1,8 @@
 <div>
     <mat-form-field class="full-width" appearance="fill" style="text-align: right">
         <mat-label [attr.for]="fieldName">{{label}}</mat-label>
-        <input matInput placeholder="{{placeholder}}" [id]="fieldName" [name]="fieldName" [value]="value"
-            [disabled]="isDisabled" (input)="onChange($event)" (blur)="touched()">
+        <textarea matInput [rows]="rows" placeholder="{{placeholder}}" [id]="fieldName" [name]="fieldName" [value]="value"
+            [disabled]="isDisabled" (input)="onChange($event)" (blur)="touched()"></textarea>
         <app-field-errors [formField]="formField" [fieldName]="fieldName" [label]="label"></app-field-errors>
     </mat-form-field>
 </div>

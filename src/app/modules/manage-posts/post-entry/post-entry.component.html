@@ -10,7 +10,11 @@
           </app-input>
         </div>
 
-
+        <div class="col-12 form-group">
+          <app-textarea [parentForm]="postForm" [fieldName]="'body'" formControlName="body" label="متن"
+            placeholder="متن را تایپ نمایید" [rows]="15">
+          </app-textarea>
+        </div>
 
       </form>
     </ng-container>

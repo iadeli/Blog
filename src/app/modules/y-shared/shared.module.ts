@@ -9,7 +9,11 @@ import { MaterialModule } from './material.module';
 import { ActionButtonsComponent } from './components/grid/action-buttons/action-buttons.component';
 import { InputComponent } from './components/input/input.component';
 import { FieldErrorsComponent } from './components/field-errors/field-errors.component';
-import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
+import {
+  ErrorStateMatcher,
+  ShowOnDirtyErrorStateMatcher,
+} from '@angular/material/core';
+import { TextareaComponent } from './components/textarea/textarea.component';
 
 @NgModule({
   declarations: [
@@ -18,12 +22,21 @@ import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/materi
     GridComponent,
     ActionButtonsComponent,
     InputComponent,
-    FieldErrorsComponent
+    FieldErrorsComponent,
+    TextareaComponent,
   ],
   imports: [CommonModule, ReactiveFormsModule, FormsModule, MaterialModule],
-  exports: [ReactiveFormsModule, MaterialModule, SpinnerComponent, CardComponent, GridComponent, InputComponent],
+  exports: [
+    ReactiveFormsModule,
+    MaterialModule,
+    SpinnerComponent,
+    CardComponent,
+    GridComponent,
+    InputComponent,
+    TextareaComponent,
+  ],
   providers: [
-    {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}
-  ]
+    { provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher },
+  ],
 })
 export class SharedModule {}
