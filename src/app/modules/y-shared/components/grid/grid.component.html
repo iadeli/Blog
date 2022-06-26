@@ -10,7 +10,8 @@
     </mat-form-field>
   </div>
   <div class="action-box">
-    <button color="Basic" mat-mini-fab aria-label="Example icon button with a home icon">
+    <button (click)="onTableAction({name: 'add', value: null})" color="Basic" mat-mini-fab
+      aria-label="Example icon button with a home icon">
       <mat-icon>add</mat-icon>
     </button>
     <!-- <button color="primary" mat-mini-fab aria-label="Example icon button with a home icon">

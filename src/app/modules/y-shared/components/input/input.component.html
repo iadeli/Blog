@@ -1,0 +1,14 @@
+<div>
+    <mat-form-field class="example-full-width" appearance="fill" style="text-align: right">
+        <mat-label [attr.for]="fieldName">{{label}}</mat-label>
+        <input matInput placeholder="{{placeholder}}" [id]="fieldName" [name]="fieldName" [value]="value"
+            [disabled]="isDisabled" (input)="onChange($event)" (blur)="touched()">
+        <app-field-errors [formField]="formField" [fieldName]="fieldName" [label]="label"></app-field-errors>
+    </mat-form-field>
+</div>
+
+
+<!-- <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Leave a comment</mat-label>
+        <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+    </mat-form-field> -->
