@@ -13,29 +13,24 @@ import { NavComponent } from './component/nav/nav.component';
 import { SidebarComponent } from './component/sidebar/sidebar.component';
 import { HttpClientModule } from '@angular/common/http';
 
-
-
 @NgModule({
-  declarations: [
-    NavComponent,
-    SidebarComponent
-  ],
+  declarations: [NavComponent, SidebarComponent],
   imports: [
     CommonModule,
     CoreRoutingModule,
     HttpClientModule,
-    !environment.production ? HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 100 }) : [],
-    
-    SharedModule
+    !environment.production
+      ? HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
+          delay: 100,
+        })
+      : [],
+
+    SharedModule,
   ],
-  exports:[
-    NavComponent,
-    SidebarComponent,
-    SharedModule
-  ],
+  exports: [NavComponent, SidebarComponent, SharedModule],
   providers: [
-    {provide: ErrorHandler, useClass: GlobalErrorHandler},
-    ...environment.providers
-  ]
+    { provide: ErrorHandler, useClass: GlobalErrorHandler },
+    ...environment.providers,
+  ],
 })
-export class CoreModule { }
+export class CoreModule {}

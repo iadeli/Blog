@@ -25,7 +25,17 @@ export class GridComponent implements OnInit {
   @Output() action: EventEmitter<TableButtonAction> =
     new EventEmitter<TableButtonAction>();
   @Input() columns: Array<TableColumn> = [];
-  @Input() dataset: Array<any> = [];
+  
+  private _dataset!: Array<any>;
+  @Input()
+  public get dataset(): Array<any> {
+    return this._dataset;
+  }
+  public set dataset(value: Array<any>) {
+    this._dataset = value;
+    this.dataSource = new MatTableDataSource<any>(this._dataset);
+  }
+
   @ViewChild(MatSort, { static: true }) sort!: MatSort;
   dataSource!: MatTableDataSource<any>;
   selection = new SelectionModel<any>(true, []);

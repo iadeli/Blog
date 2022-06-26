@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot } from '@angular/router';
-import { delay, first, Observable, pipe, tap } from 'rxjs';
+import { first, Observable } from 'rxjs';
 import { CommentStateService } from 'src/app/modules/comments/services/state/comments-state.service';
-import { WaitService } from 'src/app/modules/z-core/services/wait.service';
 import { Post } from '../../models/post';
 import { PostsStateService } from '../state/posts-state.service';
 

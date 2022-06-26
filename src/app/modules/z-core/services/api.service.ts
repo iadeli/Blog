@@ -16,18 +16,18 @@ export class ApiService {
     return this.httpClient.get<T>(api_url, { headers: this.headers });
   }
 
-  post(url: string, body: any) {
+  post<T>(url: string, body: T): Observable<T> {
     let api_url = `${this.serverUrl}${url}`;
-    return this.httpClient.post(api_url, body, { headers: this.headers });
+    return this.httpClient.post<T>(api_url, body, { headers: this.headers });
   }
 
-  put(url: string, body: any, id?: any) {
+  put<T>(url: string, body: T, id?: any): Observable<T> {
     let api_url = `${this.serverUrl}${url}${id ? `/${id}` : ''}`;
-    return this.httpClient.put(api_url, body, { headers: this.headers });
+    return this.httpClient.put<T>(api_url, body, { headers: this.headers });
   }
 
-  delete(url: string, id: any) {
+  delete<T>(url: string, id: any): Observable<T> {
     let api_url = `${this.serverUrl}${url}${id ? `/${id}` : ''}`;
-    return this.httpClient.delete(api_url, { headers: this.headers });
+    return this.httpClient.delete<T>(api_url, { headers: this.headers });
   }
 }

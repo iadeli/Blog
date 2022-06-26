@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Observable, Subject, takeUntil } from 'rxjs';
 import { Post } from '../../posts/models/post';
-import { PostsStateService } from '../../posts/services/state/posts-state.service';
 import { TableConsts } from '../../y-shared/const/table';
 import { TableButtonAction } from '../../y-shared/interfaces/grid/tableButtonAction';
+import { IPost } from '../models/IPost';
 import { PostEntryComponent } from '../post-entry/post-entry.component';
+import { ManagePostStateService } from '../services/state/manage-post-state.service';
 
 @Component({
   selector: 'app-posts',
@@ -24,7 +25,7 @@ export class PostsComponent implements OnInit {
   ];
 
   constructor(
-    private postsState: PostsStateService,
+    private postsState: ManagePostStateService,
     private matDialog: MatDialog
   ) {}
 
@@ -42,18 +43,23 @@ export class PostsComponent implements OnInit {
 
   onTableAction(event: TableButtonAction) {
     if (event.name != TableConsts.actionButton.delete) this.openModal(event);
+    else this.delete(event.value);
   }
   openModal(event: TableButtonAction) {
     this.matDialogRef = this.matDialog.open(PostEntryComponent, {
-      data: { event },
-      disableClose: true
+      data: event,
+      disableClose: true,
     });
 
     // this.matDialogRef.afterClosed().subscribe(res => {
     //   if ((res == true)) {
-        
+
     //   }
     // });
+  }
+
+  delete(post: IPost) {
+    this.postsState.delete(post);
   }
 
   ngOnDestroy() {

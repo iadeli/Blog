@@ -12,35 +12,35 @@ export class InMemoryDataService implements InMemoryDbService {
     const posts: Post[] = [];
     const comments: Comment[] = [];
 
-    const craetePost = () => {
-      return {
-        userId: faker.datatype.number(),
-        id: faker.datatype.number(),
-        title: faker.lorem.slug(),
-        body: faker.lorem.paragraphs(),
-        //comment: new Array<Comment>()
-      };
-    };
+    // const craetePost = () => {
+    //   return {
+    //     userId: faker.datatype.number(),
+    //     id: faker.datatype.number(),
+    //     title: faker.lorem.slug(),
+    //     body: faker.lorem.paragraphs(),
+    //     //comment: new Array<Comment>()
+    //   };
+    // };
 
-    const createComment = (post_id: number) => {
-      return {
-        postId: post_id,
-        id: faker.datatype.number(),
-        name: faker.name.firstName(),
-        email: faker.internet.email(),
-        body: faker.lorem.paragraphs()
-      }
-    }
+    // const createComment = (post_id: number) => {
+    //   return {
+    //     postId: post_id,
+    //     id: faker.datatype.number(),
+    //     name: faker.name.firstName(),
+    //     email: faker.internet.email(),
+    //     body: faker.lorem.paragraphs()
+    //   }
+    // }
 
-    Array.from({ length: 10 }).forEach(() => {
-      let post = craetePost();
-      Array.from({ length: 5 }).forEach(() => {
-        let comment = createComment(post.id);
-        //post.comment.push(comment);
-        comments.push(comment);
-      });
-      posts.push(post);
-    });
+    // Array.from({ length: 10 }).forEach(() => {
+    //   let post = craetePost();
+    //   Array.from({ length: 5 }).forEach(() => {
+    //     let comment = createComment(post.id);
+    //     //post.comment.push(comment);
+    //     comments.push(comment);
+    //   });
+    //   posts.push(post);
+    // });
 
     return { posts, comments };
   }

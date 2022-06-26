@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PostsComponent } from './posts/posts.component';
-import { ManagePostsResolve } from './services/manage-posts.resolve';
+import { ManagePostsResolve } from './services/resolver/manage-posts.resolve';
 
 const routes: Routes = [
   {
