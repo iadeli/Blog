@@ -1,5 +1,5 @@
 import { Component, forwardRef, Input, OnInit } from '@angular/core';
-import { ControlValueAccessor, FormControl, FormGroup, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ControlValueAccessor, UntypedFormControl, UntypedFormGroup, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'app-textarea',
@@ -16,7 +16,7 @@ import { ControlValueAccessor, FormControl, FormGroup, NG_VALUE_ACCESSOR } from 
 export class TextareaComponent implements ControlValueAccessor {
 
   @Input()
-  parentForm: FormGroup | undefined;
+  parentForm: UntypedFormGroup | undefined;
 
   @Input()
   fieldName!: string;
@@ -34,8 +34,8 @@ export class TextareaComponent implements ControlValueAccessor {
   public touched!: () => void;
   public isDisabled!: boolean;
 
-  get formField(): FormControl {
-    return this.parentForm?.get(this.fieldName) as FormControl;
+  get formField(): UntypedFormControl {
+    return this.parentForm?.get(this.fieldName) as UntypedFormControl;
   }
 
   constructor() {}

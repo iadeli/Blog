@@ -34,6 +34,7 @@ export class GridComponent implements OnInit {
   public set dataset(value: Array<any>) {
     this._dataset = value;
     this.dataSource = new MatTableDataSource<any>(this._dataset);
+    this.dataSource.paginator = this.paginator;
   }
 
   @ViewChild(MatSort, { static: true }) sort!: MatSort;

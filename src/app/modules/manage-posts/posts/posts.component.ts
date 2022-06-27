@@ -45,17 +45,12 @@ export class PostsComponent implements OnInit {
     if (event.name != TableConsts.actionButton.delete) this.openModal(event);
     else this.delete(event.value);
   }
+  
   openModal(event: TableButtonAction) {
     this.matDialogRef = this.matDialog.open(PostEntryComponent, {
       data: event,
       disableClose: true,
     });
-
-    // this.matDialogRef.afterClosed().subscribe(res => {
-    //   if ((res == true)) {
-
-    //   }
-    // });
   }
 
   delete(post: IPost) {

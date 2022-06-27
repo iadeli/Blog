@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { faker } from '@faker-js/faker';
 import { TableButtonAction } from '../../y-shared/interfaces/grid/tableButtonAction';
@@ -12,7 +12,7 @@ import { ManagePostStateService } from '../services/state/manage-post-state.serv
   styleUrls: ['./post-entry.component.scss'],
 })
 export class PostEntryComponent implements OnInit {
-  postForm: FormGroup = this.fb.group({
+  postForm: UntypedFormGroup = this.fb.group({
     userId: 0,
     id: 0,
     title: ['', Validators.required],
@@ -22,7 +22,7 @@ export class PostEntryComponent implements OnInit {
 
   constructor(
     private _mdr: MatDialogRef<PostEntryComponent>,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private postService: ManagePostStateService,
     @Inject(MAT_DIALOG_DATA) data: TableButtonAction
   ) {
@@ -41,7 +41,7 @@ export class PostEntryComponent implements OnInit {
       });
   }
 
-  onSubmit(form: FormGroup) {
+  onSubmit(form: UntypedFormGroup) {
     if (form.invalid) return;
 
     const newPost: IPost = {
@@ -51,13 +51,13 @@ export class PostEntryComponent implements OnInit {
 
     if (newPost.id) {
       this.postService.update(newPost);
-      this.CloseDialog();
     } else {
       newPost.id = faker.datatype.number();
       newPost.userId = faker.datatype.number();
       this.postService.create(newPost);
-      this.CloseDialog();
     }
+
+    this.CloseDialog();
   }
 
   CloseDialog() {
