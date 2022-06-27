@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
-import { StateService } from 'src/app/modules/z-core/services/state.service';
+import { StateService } from 'src/app/modules/core/services/state.service';
 import { Comment } from '../../../comments/models/comment';
 import { CommentApiService } from '../api/comment-api.mock.service';
 

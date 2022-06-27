@@ -5,13 +5,13 @@ const routes: Routes = [
   {
     path: 'posts',
     loadChildren: () =>
-      import('./modules/posts/posts.module').then((m) => m.PostsModule),
+      import('./modules/posts/main-posts/main-page.module').then((m) => m.MainPageModule),
   },
   {
     path: 'manage_posts',
     loadChildren: () =>
-      import('./modules/manage-posts/manage-posts.module').then(
-        (m) => m.ManagePostsModule
+      import('./modules/posts/manage-posts/manage-posts.module').then(
+        (m) => m.ManageMainPageModule
       ),
   },
   { path: '', redirectTo: 'posts', pathMatch: 'full' },
