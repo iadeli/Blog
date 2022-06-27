@@ -4,6 +4,7 @@
     <ng-container *ngIf="postForm">
       <form id="post-form" [formGroup]="postForm" (ngSubmit)="onSubmit(postForm)" class="pad-form">
 
+        <h4 class="header">ثبت پست</h4>
         <div class="col-6 form-group">
           <app-input [parentForm]="postForm" [fieldName]="'title'" formControlName="title" label="عنوان"
             placeholder="عنوان را تایپ نمایید">
@@ -12,7 +13,7 @@
 
         <div class="col-12 form-group">
           <app-textarea [parentForm]="postForm" [fieldName]="'body'" formControlName="body" label="متن"
-            placeholder="متن را تایپ نمایید" [rows]="15">
+            placeholder="متن را تایپ نمایید" [rows]="12">
           </app-textarea>
         </div>
 

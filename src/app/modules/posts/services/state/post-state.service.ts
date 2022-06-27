@@ -2,12 +2,9 @@ import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import { StateService } from 'src/app/modules/core/services/state.service';
 import { Post } from '../../models/Post';
+import { PostState } from './post-state';
 import { PostApiService } from '../api/posts-api.mock.service';
 
-export interface PostState {
-  posts: Post[];
-  selectedPostId: number;
-}
 
 const initialState: PostState = {
   posts: [],
